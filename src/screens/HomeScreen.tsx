@@ -30,7 +30,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView>
-      <View>
+      <View style={tw`pb-2`}>
         {/* Header */}
         <View style={tw`flex-row pb-3 items-center mx-4`}>
           <Image
@@ -65,7 +65,7 @@ const HomeScreen = () => {
       </View>
 
       {/* Body */}
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         {/* Categories */}
         <Categories />
         {/* Featured Rows */}
