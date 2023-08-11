@@ -18,6 +18,10 @@ import {
 import tw from "twrnc";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
+import { fakerRU } from "@faker-js/faker";
+import { createFakeFeatureRow } from "../utils/generator";
+
+const address = fakerRU.location.streetAddress();
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -44,7 +48,7 @@ const HomeScreen = () => {
               Привезем сейчас!
             </Text>
             <View style={tw`flex-row items-center`}>
-              <Text style={tw`font-bold text-xl`}>Тверская, 23к1</Text>
+              <Text style={tw`font-bold text-xl`}>{address}</Text>
               <ChevronDownIcon size={20} color="#00CCBB" style={tw`ml-1`} />
             </View>
           </View>
@@ -69,18 +73,9 @@ const HomeScreen = () => {
         {/* Categories */}
         <Categories />
         {/* Featured Rows */}
-        <FeaturedRow
-          title="Реклама"
-          description="Горячие предложения от наших партнеров"
-        />
-        <FeaturedRow
-          title="Скидки и промокоды"
-          description="Спешите поесть по вкусной цене"
-        />
-        <FeaturedRow
-          title="Совсем рядом"
-          description="Время доставки до 30 минут"
-        />
+        <FeaturedRow featuredRow={createFakeFeatureRow()} />
+        <FeaturedRow featuredRow={createFakeFeatureRow()} />
+        <FeaturedRow featuredRow={createFakeFeatureRow()} />
       </ScrollView>
     </SafeAreaView>
   );
